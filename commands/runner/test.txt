@@ -1,0 +1,65 @@
+local Draxenlogin = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextBox = Instance.new("TextBox")
+local TextButton = Instance.new("TextButton")
+
+
+Draxenlogin.Name = "Draxenlogin"
+Draxenlogin.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+Main.Name = "Main"
+Main.Parent = Draxenlogin
+Main.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.5, -254, 0.5, -100)
+Main.Size = UDim2.new(0, 508, 0, 200)
+
+TextLabel.Parent = Main
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(-0.000894755125, 0, -0.00373464823, 0)
+TextLabel.Size = UDim2.new(0, 508, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Draxen"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextBox.Parent = Main
+TextBox.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.0787401572, 0, 0.469999999, 0)
+TextBox.Size = UDim2.new(0, 427, 0, 34)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.PlaceholderText = "Password"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+TextButton.Parent = Main
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+TextButton.Position = UDim2.new(0.226377964, 0, 0.685000002, 0)
+TextButton.Size = UDim2.new(0, 277, 0, 27)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Log In"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+
+TextButton.MouseButton1Click:Connect(function()
+    local tex = TextBox
+    local key = "CrispyKey76062006"
+    if tex.Text == key then
+        tex.Text = "Perfect"
+    else
+        tex.Text = "wrong"
+        wait(2)
+        tex.Text = "Login"
+    end
+end)

@@ -1,0 +1,2 @@
+eval const prun = require(`${process.cwd()}/test/prun`);
+prun.run(client, message, ['source', args]);

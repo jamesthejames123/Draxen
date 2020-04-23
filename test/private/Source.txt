@@ -1,0 +1,37 @@
+```py
+--json stuff---
+
+def read_json(filename):
+    with open(f"{cwd}/bot_config/{filename}.json", "r") as file:
+        data = json.load(file)
+    return data
+
+def write_json(data, filename):
+    with open(f"{cwd}/bot_config/{filename}.json", "w") as file:
+         data = json.dump(data, file, indent=4)
+    return data
+--Creating key and logging it--
+@client.command()
+async def getkey(ctx):
+  data = read_json('userid')
+  key = read_json('key')
+  owner = client.get_user(int('396025342411669515'))
+  if str(ctx.author.id) in data and data[str(ctx.author.id)] != -1:
+    # I.E. IF they HAVE a password already
+    await ctx.send("Sent password, please check your dms")
+    await ctx.author.send(f"Password: `{data[str(ctx.author.id)]}`")
+    return
+  if str(ctx.author.id) in key and key[str(ctx.author.id)] != -1:
+    await ctx.send("Please Wait")
+    return
+  #This should run if they do not exist in the file, OR do exist in the file but there value is -1 (I.e. a placeholder value)
+  password = random string generator
+  key[ctx.author.id] = password
+  write_json(key, "key")
+  await ctx.send("Heya, I made you a password. Please wait for Ju1cyHack3r to activate and give it to you!")
+  await owner.send(f"""Password: `{key[ctx.author.id]}`
+UserName: <`{ctx.author}`
+Mentioned: <@{ctx.author.id}>
+UserId: {ctx.author.id}
+  """)
+```
